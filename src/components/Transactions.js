@@ -7,10 +7,10 @@ function Transactions() {
   useEffect(() => {
     fetch("http://localhost:3000/transactions")
       .then((res) => {
-        if (!res.ok) {
-          throw new Error("Network response was not okay");
+        if (res.ok) {
+            return res.json();
         }
-        return res.json();
+        throw new Error("Network response was not okay");
       })
       .then((transactions) => setTransactions(transactions))
       .catch((error) => console.error("Error Fetching data:", error));
@@ -28,7 +28,7 @@ function Transactions() {
             <th></th>
           </tr>
         </thead>
-        <TransactionData transactions={transactions}  />
+        <TransactionData transactions={transactions} />
       </table>
     </div>
   );
