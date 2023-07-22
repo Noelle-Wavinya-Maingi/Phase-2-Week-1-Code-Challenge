@@ -25,19 +25,10 @@ function Transactions() {
             <th>Description</th>
             <th>Category</th>
             <th>Amount</th>
+            <th></th>
           </tr>
         </thead>
-        <tbody>
-          {transactions.map((transaction) => (
-            <TransactionData
-              key={transaction.id}
-              date={transaction.date}
-              description={transaction.description}
-              category={transaction.category}
-              amount={transaction.amount}
-            />
-          ))}
-        </tbody>
+        <TransactionData transactions={transactions}  />
       </table>
     </div>
   );

@@ -1,15 +1,19 @@
 import React from "react";
 
-function TransactionData({ date, description, category, amount }) {
+function TransactionData({ transactions }) {
   return (
     <tbody>
-      <tr>
-        <td>{date}</td>
-        <td>{description}</td>
-        <td>{category}</td>
-        <td>{amount}</td>
-        <button>Delete</button>
-      </tr>
+      {transactions.map((transaction) => (
+        <tr key={transaction.id}>
+          <td>{transaction.date}</td>
+          <td>{transaction.description}</td>
+          <td>{transaction.category}</td>
+          <td>{transaction.amount}</td>
+          <td>
+            <button>Delete</button>
+          </td>
+        </tr>
+      ))}
     </tbody>
   );
 }
