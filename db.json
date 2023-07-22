@@ -97,6 +97,27 @@
       "category": "Food",
       "amount": "3000",
       "id": 14
+    },
+    {
+      "date": "2023-06-26",
+      "description": "Office Lunch",
+      "amount": "456",
+      "category": "Food",
+      "id": 15
+    },
+    {
+      "date": "2023-07-22",
+      "description": "Lyft Ride",
+      "amount": "1200",
+      "category": "Transporation",
+      "id": 16
+    },
+    {
+      "date": "2023-07-11",
+      "description": "Venmo,Pay Roomate for Rent",
+      "amount": "989",
+      "category": "Housing",
+      "id": 17
     }
   ]
 }

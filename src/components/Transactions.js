@@ -8,7 +8,7 @@ function Transactions() {
     fetch("http://localhost:3000/transactions")
       .then((res) => {
         if (res.ok) {
-            return res.json();
+          return res.json();
         }
         throw new Error("Network response was not okay");
       })
