@@ -1,6 +1,6 @@
 import React from "react";
 
-function TransactionData({ transactions }) {
+function TransactionData({ transactions, handleDeleteTransaction }) {
   return (
     <tbody>
       {transactions.map((transaction) => (
@@ -10,7 +10,7 @@ function TransactionData({ transactions }) {
           <td>{transaction.category}</td>
           <td>{transaction.amount}</td>
           <td>
-            <button>Delete</button>
+            <button onClick={() => handleDeleteTransaction(transaction.id)}>Delete</button>
           </td>
         </tr>
       ))}

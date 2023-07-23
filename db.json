@@ -118,6 +118,13 @@
       "amount": "989",
       "category": "Housing",
       "id": 17
+    },
+    {
+      "date": "2023-07-11",
+      "description": "Chipotle",
+      "amount": "-10.89",
+      "category": "Food",
+      "id": 18
     }
   ]
 }

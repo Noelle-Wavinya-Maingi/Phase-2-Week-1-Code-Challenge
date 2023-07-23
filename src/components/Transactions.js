@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import TransactionData from "./TransactionData";
 
-function Transactions() {
+function Transactions({handleDeleteTransaction}) {
   const [transactions, setTransactions] = useState([]);
 
   useEffect(() => {
@@ -28,7 +28,7 @@ function Transactions() {
             <th></th>
           </tr>
         </thead>
-        <TransactionData transactions={transactions} />
+        <TransactionData transactions={transactions} handleDeleteTransaction={handleDeleteTransaction} />
       </table>
     </div>
   );
