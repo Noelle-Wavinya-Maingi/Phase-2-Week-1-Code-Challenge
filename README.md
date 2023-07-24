@@ -44,4 +44,4 @@ npm start to start the development
 The author of the code challenge solution is Noelle Maingi.
 
 # Licence
-[licence]
+[licence] (LICENCE)
