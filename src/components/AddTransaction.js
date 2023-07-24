@@ -49,7 +49,7 @@ function AddTransaction({onFormSubmit}) {
         />
       </label>
       <label>
-        Category{" "}
+        Category:{" "}
         <input
           value={newTransaction.category}
           onChange={handleField}
