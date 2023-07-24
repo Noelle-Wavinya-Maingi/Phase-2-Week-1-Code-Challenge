@@ -1,26 +1,20 @@
-import { useEffect, useState } from "react";
 
-function SearchTransaction({ searchValue }) {
-const [searchInput, setSearchInput] = useState("")
-
-  function handleSearch(e) {
-    setSearchInput(e.target.value);
-  }
-
-  useEffect(() => {
-    searchValue(searchInput)
-  }, [searchInput, searchValue])
+function SearchTransaction({ handleSearchChange }) {
+const handleSubmitSearch = (e) => {
+  e.preventDefault()
+}
 
   return (
     <div className="search-container">
+      <form onSubmit={handleSubmitSearch}>
       <input
         type="text"
         name="search-bar"
         placeholder="Search here...."
-        onChange={handleSearch}
-        value={searchInput}
+        onChange={handleSearchChange}
       />
-      <button onClick={()=> searchValue(searchInput)}>Search</button>
+      <button className="search-button">Search</button>
+      </form>
     </div>
   );
 }

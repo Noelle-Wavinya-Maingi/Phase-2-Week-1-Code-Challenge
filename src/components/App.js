@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import Transactions from "./Transactions";
 import AddTransaction from "./AddTransaction";
@@ -7,8 +7,17 @@ import SortTransaction from "./SortTransaction";
 
 function App() {
   const [trans, setTrans] = useState([]);
-  const [searchInput, setSearchInput] = useState("");
-  const [sortOption, setSortOption] = useState("category"); // Default sorting by category
+  const [searchResults, setSearchResult] = useState([]);
+  const [sortOption, setSortOption] = useState("category"); 
+  const [category, setCategory] = useState("All");
+
+ 
+  useEffect(() => {
+    fetch("http://localhost:3000/transactions")
+    .then(json => {setTrans(json)
+    return json})
+    .then(json => {setSearchResult(json)})
+    },[])
 
   function AddNewTransaction(newTrans) {
     fetch("http://localhost:3000/transactions", {
@@ -48,36 +57,31 @@ function App() {
       });
   }
 
-  const filterTransactions = trans.filter((transaction) => {
-    const searchTerm = searchInput.trim().toLowerCase();
-    return (
-      searchTerm === "" ||
-      transaction.description.toLowerCase().includes(searchTerm)
-    );
-  });
+  // const filterTransactions = trans
+  //   .filter((transaction) => {
+  //     if (category === "All") {
+  //       return true;
+  //     } else {
+  //       return transaction.category === category;
+  //     }
+  //   })
+  //   .filter((transaction) =>
+  //     transaction.description.toLowerCase().includes(trans.toLowerCase())
+  //   );
 
   const handleSortChange = (option) => {
     setSortOption(option);
   };
 
-  // Sort transactions based on the selected option
-  const sortedTransactions = filterTransactions.slice().sort((a, b) => {
-    if (sortOption === "category") {
-      return a.category.localeCompare(b.category);
-    } else {
-      return a.description.localeCompare(b.description);
-    }
-  });
 
   return (
     <div>
       <div>
         <h1> BANK OF FLATIRON </h1>
       </div>
-      <SearchTransaction searchValue={setSearchInput} />
       <SortTransaction sortValue={handleSortChange} />
       <Transactions
-        transactions={sortedTransactions} // Use the sorted transactions here
+        // sortedTransactions={sortedTransactions} 
         handleDeleteTransaction={handleDeleteTransaction}
       />
       <AddTransaction onFormSubmit={AddNewTransaction} />

@@ -1,9 +1,17 @@
 import { useEffect, useState } from "react";
 import TransactionData from "./TransactionData";
+import SearchTransaction from "./SearchTransaction";
 
 function Transactions({handleDeleteTransaction}) {
   const [transactions, setTransactions] = useState([]);
+  const [search, setSearch] = useState("");
 
+  const handleSearchChange = (e) => {
+    setSearch(e.target.value)
+  }
+      const results = transactions.filter(item => item.description.includes(search ) || item.category.includes(search))
+    
+  //const Content = results?. lenght ? results : <p>No Result found</p>
   useEffect(() => {
     fetch("http://localhost:3000/transactions")
       .then((res) => {
@@ -18,6 +26,7 @@ function Transactions({handleDeleteTransaction}) {
 
   return (
     <div>
+      <SearchTransaction handleSearchChange={handleSearchChange} />
       <table>
         <thead>
           <tr>
@@ -28,7 +37,8 @@ function Transactions({handleDeleteTransaction}) {
             <th></th>
           </tr>
         </thead>
-        <TransactionData transactions={transactions} handleDeleteTransaction={handleDeleteTransaction} />
+        <TransactionData transactions={results} handleDeleteTransaction={handleDeleteTransaction} />
+        {/* <main>{Content}</main> */}
       </table>
     </div>
   );
