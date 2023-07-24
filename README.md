@@ -22,8 +22,10 @@ As a user, I should be able to:
 
 To run the code challange, follow these steps:
 
-1. Clone the repository: git clone git@github.com:Noelle-Wavinya-Maingi/Phase-2-Week-1-Code-Challenge.git
-
+1. Clone the repository: 
+```sh
+git clone git@github.com:Noelle-Wavinya-Maingi/Phase-2-Week-1-Code-Challenge.git
+```
 2. Navigate to your local directory: cd nameofthedirectory
 
 3. After navigating to the directory, run 
