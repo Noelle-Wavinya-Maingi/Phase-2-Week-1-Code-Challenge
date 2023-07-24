@@ -2,7 +2,7 @@
 
 # Description
 
-The code challenge for week one of phase two was to create a react app that fetches data from db.json whose data is from [data] (https://docs.google.com/document/d/1EWN0qLfAWfgzO1N2P8H5WmrsTx0nMkhp3s-rXVESTNA/edit) The proejct deliverables are as below: 
+The code challenge for week one of phase two was to create a react app that fetches data from db.json whose data is from https://docs.google.com/document/d/1EWN0qLfAWfgzO1N2P8H5WmrsTx0nMkhp3s-rXVESTNA/edit. The proejct deliverables are as below: 
 
 # Project Deliverables:
 
