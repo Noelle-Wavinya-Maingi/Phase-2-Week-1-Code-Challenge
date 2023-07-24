@@ -70,9 +70,8 @@ function App() {
       <div>
         <h1> BANK OF FLATIRON </h1>
       </div>
-
-      <Transactions handleDeleteTransaction={handleDeleteTransaction} />
       <AddTransaction onFormSubmit={AddNewTransaction} />
+      <Transactions handleDeleteTransaction={handleDeleteTransaction} />
     </div>
   );
 }
